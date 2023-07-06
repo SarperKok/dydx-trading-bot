@@ -5,7 +5,7 @@ from decouple import config
 MODE = "DEVELOPMENT"
 
 # Close all open positions and orders
-ABORT_ALL_POSITIONS = False
+ABORT_ALL_POSITIONS = True
 
 # Find Cointegrated Pairs
 FIND_COINTEGRATED = True
@@ -61,3 +61,4 @@ HOST = API_HOST_MAINNET if MODE == "PRODUCTION" else API_HOST_GOERLI
 HTTP_PROVIDER_MAINNET = "https://eth-mainnet.g.alchemy.com/v2/eRJBs2vPaLg14CRYNfjin9uXyFOAek7Q"
 HTTP_PROVIDER_TESTNET = "https://eth-goerli.g.alchemy.com/v2/VJ7LeSnHzf_L-eCVW5UR9JpqLvVjWs8V"
 HTTP_PROVIDER = HTTP_PROVIDER_MAINNET if MODE == "PRODUCTION" else HTTP_PROVIDER_TESTNET
+
