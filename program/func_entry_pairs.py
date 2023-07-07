@@ -85,19 +85,14 @@ def open_positions(client):
           # Get size
           base_quantity = 1 / base_price * USD_PER_TRADE
           quote_quantity = 1 / quote_price * USD_PER_TRADE
+          for particolari in TOKEN_FACTOR_10 :
+            if base_market== particolari :
+              base_quantity= float(int(base_quantity/10)*10) 
+            if quote_market== particolari :
+              quote_quantity= float(int(quote_quantity/10)*10) 
           base_step_size = markets["markets"][base_market]["stepSize"]
           quote_step_size = markets["markets"][quote_market]["stepSize"]
-
-          # Adjust quantity for coins with factor of 10 requirement
-          if base_market in TOKEN_FACTOR_10:
-
-             base_quantity = float(int(base_quantity / 10) * 10)
-
-          if quote_market in TOKEN_FACTOR_10:
-
-             quote_quantity = float(int(quote_quantity / 10) * 10)
             
-          
           # Format sizes
           base_size = format_number(base_quantity, base_step_size)
           quote_size = format_number(quote_quantity, quote_step_size)
